@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.4'
+
+target 'E-Commerce' do
+  use_frameworks!
+  pod 'RxSwift'
+  pod 'RxCocoa'
+  pod 'Alamofire'
+  pod 'AlamofireImage'
+  pod 'SVPullToRefresh'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
+
+end
+
+  # Pods for E-Commerce
+
+  target 'E-CommerceTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'E-CommerceUITests' do
+    # Pods for testing
+  end
+
