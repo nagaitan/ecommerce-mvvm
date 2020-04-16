@@ -23,7 +23,7 @@
                     <rect key="frame" x="16" y="60" width="382" height="786"/>
                     <subviews>
                         <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kT6-dk-TWt">
-                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                            <rect key="frame" x="40" y="0.0" width="342" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="2OM-aY-hpm"/>
                             </constraints>
@@ -33,16 +33,26 @@
                             <rect key="frame" x="0.0" y="60" width="382" height="726"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         </tableView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2A-k9-btC">
+                            <rect key="frame" x="8" y="11" width="24" height="22"/>
+                            <state key="normal" image="arrow.left" catalog="system"/>
+                            <connections>
+                                <action selector="goBack:" destination="-1" eventType="touchUpInside" id="PJ3-oh-zwS"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="C0i-6c-ZKz" secondAttribute="bottom" id="1Rb-d4-J5c"/>
+                        <constraint firstItem="kT6-dk-TWt" firstAttribute="leading" secondItem="S2A-k9-btC" secondAttribute="trailing" constant="8" id="48u-Bl-GBM"/>
+                        <constraint firstItem="S2A-k9-btC" firstAttribute="leading" secondItem="DlJ-42-LNh" secondAttribute="leading" constant="8" id="A9w-Ai-R8a"/>
                         <constraint firstItem="C0i-6c-ZKz" firstAttribute="top" secondItem="kT6-dk-TWt" secondAttribute="bottom" constant="16" id="Q9J-mF-Nnb"/>
                         <constraint firstItem="kT6-dk-TWt" firstAttribute="top" secondItem="DlJ-42-LNh" secondAttribute="top" id="RPs-Oy-hwc"/>
                         <constraint firstAttribute="trailing" secondItem="C0i-6c-ZKz" secondAttribute="trailing" id="b1O-gV-K8Z"/>
-                        <constraint firstItem="kT6-dk-TWt" firstAttribute="leading" secondItem="DlJ-42-LNh" secondAttribute="leading" id="flg-9I-nMu"/>
+                        <constraint firstItem="kT6-dk-TWt" firstAttribute="leading" secondItem="DlJ-42-LNh" secondAttribute="leading" constant="40" id="flg-9I-nMu"/>
                         <constraint firstItem="C0i-6c-ZKz" firstAttribute="leading" secondItem="DlJ-42-LNh" secondAttribute="leading" id="v1d-Ai-TDp"/>
                         <constraint firstAttribute="trailing" secondItem="kT6-dk-TWt" secondAttribute="trailing" id="vpL-O2-8aj"/>
+                        <constraint firstItem="S2A-k9-btC" firstAttribute="centerY" secondItem="kT6-dk-TWt" secondAttribute="centerY" id="yrN-jG-j2o"/>
                     </constraints>
                 </view>
             </subviews>
@@ -57,4 +67,7 @@
             <point key="canvasLocation" x="131.8840579710145" y="112.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
+    </resources>
 </document>

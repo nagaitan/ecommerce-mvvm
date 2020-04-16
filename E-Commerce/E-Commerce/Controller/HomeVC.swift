@@ -104,6 +104,12 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.tableView.deselectRow(at: indexPath, animated: false)
+        let cont = DetailVC.initiate(item: self.viewModel.promoItems[indexPath.row])
+        self.navigationController?.pushViewController(cont, animated: true)
+    }
+    
     
 }
 
