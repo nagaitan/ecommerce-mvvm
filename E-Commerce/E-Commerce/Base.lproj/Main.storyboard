@@ -174,7 +174,7 @@
             </objects>
             <point key="canvasLocation" x="2051" y="443"/>
         </scene>
-        <!--HomeVC-->
+        <!--Home-->
         <scene sceneID="HdR-WE-asu">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="aNZ-Ud-QLP" customClass="HomeVC" customModule="E_Commerce" customModuleProvider="target" sceneMemberID="viewController">
@@ -247,8 +247,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EyA-ne-Hv5"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vfl-As-2P1"/>
+                    <navigationItem key="navigationItem" title="Home" id="vfl-As-2P1"/>
                     <connections>
+                        <outlet property="searchBar" destination="9cJ-s7-FCO" id="8UR-7O-sgN"/>
                         <outlet property="tableView" destination="KGr-Eq-eEq" id="Iid-Ou-bvP"/>
                     </connections>
                 </viewController>

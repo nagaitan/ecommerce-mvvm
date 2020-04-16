@@ -17,6 +17,7 @@ class HomeVC: UIViewController {
     let viewModel = HomeViewModel()
     private let refreshStream = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
+    @IBOutlet weak var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,7 @@ class HomeVC: UIViewController {
     }
     
     func setupView() {
+        searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
@@ -103,4 +105,17 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     
+}
+
+extension HomeVC : UISearchBarDelegate{
+    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+        
+        let searchController = SearchVC()
+        
+        searchController.modalPresentationStyle = .fullScreen
+        
+        self.navigationController?.pushViewController(searchController, animated: true)
+        
+        return false
+    }
 }
