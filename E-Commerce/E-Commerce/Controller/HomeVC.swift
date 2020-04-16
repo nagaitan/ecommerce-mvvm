@@ -27,6 +27,7 @@ class HomeVC: UIViewController {
     }
     
     func setupView() {
+        self.navigationController?.navigationBar.isHidden = true
         searchBar.delegate = self
         tableView.delegate = self
         tableView.dataSource = self

@@ -8,17 +8,18 @@
 
 import Foundation
 import SwiftyJSON
+import RealmSwift
 
-struct Category {
-    var imageUrl : String?
-    var name : String?
-    var id : Int?
+class Category : Object{
+    @objc dynamic var imageUrl : String?
+    @objc dynamic var name : String?
+    @objc dynamic var id : Int = 0
     
     static func with(json: JSON) -> Category? {
-        var cat = Category()
+        let cat = Category()
         
         if json["id"].exists() {
-            cat.id = json["id"].int
+            cat.id = json["id"].intValue
         }
         if json["name"].exists() {
             cat.name = json["name"].string
@@ -31,16 +32,16 @@ struct Category {
     
 }
 
-struct PromoItem {
-    var imageUrl : String?
-    var title : String?
-    var id : String?
-    var description : String?
-    var price : String?
-    var loved : Int?
+class PromoItem : Object{
+    @objc dynamic var imageUrl : String?
+    @objc dynamic var title : String?
+    @objc dynamic var id : String?
+    @objc dynamic var descriptions : String?
+    @objc dynamic var price : String?
+    @objc dynamic var loved : Int = 0
     
     static func with(json: JSON) -> PromoItem? {
-        var promo = PromoItem()
+        let promo = PromoItem()
         
         if json["id"].exists() {
             promo.id = json["id"].string
@@ -52,13 +53,13 @@ struct PromoItem {
             promo.imageUrl = json["imageUrl"].string
         }
         if json["description"].exists() {
-            promo.description = json["description"].string
+            promo.descriptions = json["description"].string
         }
         if json["price"].exists() {
             promo.price = json["price"].string
         }
         if json["loved"].exists() {
-            promo.loved = json["loved"].int
+            promo.loved = json["loved"].intValue
         }
         
         return promo

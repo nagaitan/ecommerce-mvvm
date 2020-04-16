@@ -15,6 +15,8 @@ class DetailVC: UIViewController {
     @IBOutlet weak var txtDescription: UITextView!
     @IBOutlet weak var imgItem: UIImageView!
     @IBOutlet weak var btnLoved: UIButton!
+    let viewModel = DetailViewModel()
+    
     var item : PromoItem!
     
     static func initiate(item : PromoItem) -> DetailVC{
@@ -30,8 +32,7 @@ class DetailVC: UIViewController {
     }
     
     func setupView(){
-        self.navigationController?.navigationBar.isHidden = true
-        if let loved = item.loved, loved == 1 {
+        if item.loved == 1 {
             btnLoved.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }else{
             btnLoved.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -42,7 +43,7 @@ class DetailVC: UIViewController {
         if let price = item.price {
             lblPrice.text = price
         }
-        if let des = item.description {
+        if let des = item.descriptions {
             txtDescription.text = des
         }
         if let urlImage = item.imageUrl, let url = NSURL(string: urlImage){
@@ -51,7 +52,7 @@ class DetailVC: UIViewController {
         
     }
     @IBAction func goLoved(_ sender: UIButton) {
-        if let loved = item.loved, loved == 0{
+        if item.loved == 0{
             item.loved = 1
             sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }else{
@@ -65,14 +66,10 @@ class DetailVC: UIViewController {
     }
 
     @IBAction func goBuy(_ sender: Any) {
-        
+        viewModel.purchaseItem(item: item)
     }
+    
     @IBAction func goShare(_ sender: Any) {
-        let shareText = item.title ?? "Items"
-
-        if let image = imgItem.image {
-            let vc = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
-            present(vc, animated: true)
-        }
+        viewModel.shareItem(vc: self, item: item)
     }
 }

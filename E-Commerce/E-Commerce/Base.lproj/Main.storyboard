@@ -271,7 +271,7 @@
                         <segue destination="08s-jY-I6m" kind="relationship" relationship="viewControllers" id="qvB-oG-Nea"/>
                         <segue destination="9V0-YR-gvP" kind="relationship" relationship="viewControllers" id="zZp-7C-gTL"/>
                         <segue destination="JLs-8y-9GX" kind="relationship" relationship="viewControllers" id="V0w-N9-uRE"/>
-                        <segue destination="8Ap-5f-zNV" kind="relationship" relationship="viewControllers" id="oVp-Q4-zdJ"/>
+                        <segue destination="LQj-Uv-SCv" kind="relationship" relationship="viewControllers" id="oVp-Q4-zdJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tNX-Bk-WE8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -295,22 +295,69 @@
             </objects>
             <point key="canvasLocation" x="2051" y="1134"/>
         </scene>
-        <!--Profile-->
+        <!--PurchasedVC-->
         <scene sceneID="Dvv-bu-MKH">
             <objects>
-                <viewController id="8Ap-5f-zNV" sceneMemberID="viewController">
+                <viewController id="8Ap-5f-zNV" customClass="PurchasedVC" customModule="E_Commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rH8-Fn-gtZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-kf-Kdj">
+                                <rect key="frame" x="16" y="72" width="382" height="754"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pVK-sP-l2d">
+                                        <rect key="frame" x="0.0" y="46" width="382" height="708"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6WM-DQ-Eax">
+                                        <rect key="frame" x="8" y="8" width="19.5" height="22"/>
+                                        <state key="normal" image="arrow.left" catalog="system"/>
+                                        <connections>
+                                            <action selector="goBack:" destination="8Ap-5f-zNV" eventType="touchUpInside" id="grW-oK-Phk"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0V-lM-Jql">
+                                        <rect key="frame" x="40" y="8" width="139" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="XbE-KQ-gy8"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="6WM-DQ-Eax" firstAttribute="leading" secondItem="tP7-kf-Kdj" secondAttribute="leading" constant="8" id="LRh-lx-cBM"/>
+                                    <constraint firstItem="pVK-sP-l2d" firstAttribute="top" secondItem="6WM-DQ-Eax" secondAttribute="bottom" constant="16" id="Mrm-GE-xdT"/>
+                                    <constraint firstAttribute="bottom" secondItem="pVK-sP-l2d" secondAttribute="bottom" id="Tng-7V-Xg4"/>
+                                    <constraint firstItem="6WM-DQ-Eax" firstAttribute="top" secondItem="tP7-kf-Kdj" secondAttribute="top" constant="8" id="ZJs-g3-Ve2"/>
+                                    <constraint firstItem="pVK-sP-l2d" firstAttribute="leading" secondItem="tP7-kf-Kdj" secondAttribute="leading" id="bkx-nc-JWY"/>
+                                    <constraint firstAttribute="trailing" secondItem="pVK-sP-l2d" secondAttribute="trailing" id="dfV-8E-XS4"/>
+                                    <constraint firstItem="b0V-lM-Jql" firstAttribute="leading" secondItem="tP7-kf-Kdj" secondAttribute="leading" constant="40" id="dq5-JV-tRx"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="b0V-lM-Jql" secondAttribute="trailing" constant="20" symbolic="YES" id="guG-zH-LWN"/>
+                                    <constraint firstItem="b0V-lM-Jql" firstAttribute="top" secondItem="tP7-kf-Kdj" secondAttribute="top" constant="8" id="xeI-mT-ldN"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="tP7-kf-Kdj" firstAttribute="leading" secondItem="843-uG-tvA" secondAttribute="leading" constant="16" id="Xb3-Bc-5dr"/>
+                            <constraint firstAttribute="bottom" secondItem="tP7-kf-Kdj" secondAttribute="bottom" constant="16" id="YP9-rn-yPV"/>
+                            <constraint firstItem="843-uG-tvA" firstAttribute="trailing" secondItem="tP7-kf-Kdj" secondAttribute="trailing" constant="16" id="xJU-Ic-1a3"/>
+                            <constraint firstItem="tP7-kf-Kdj" firstAttribute="top" secondItem="843-uG-tvA" secondAttribute="top" constant="16" id="y2h-u9-W79"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="843-uG-tvA"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="LIp-D8-exd"/>
                     <navigationItem key="navigationItem" id="T9J-Qz-z49"/>
+                    <connections>
+                        <outlet property="tableView" destination="pVK-sP-l2d" id="Zwg-qy-7B5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8AO-tu-ruZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2051" y="1799"/>
+            <point key="canvasLocation" x="2960.8695652173915" y="1798.6607142857142"/>
         </scene>
         <!--Home-->
         <scene sceneID="t7O-vw-03p">
@@ -331,9 +378,29 @@
             </objects>
             <point key="canvasLocation" x="2047.826086956522" y="-206.25"/>
         </scene>
+        <!--Profile-->
+        <scene sceneID="JkL-d6-sFk">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LQj-Uv-SCv" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person" catalog="system" id="LIp-D8-exd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cRJ-tj-M1j">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8Ap-5f-zNV" kind="relationship" relationship="rootViewController" id="olK-l6-3Af"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KF9-jG-4oj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2050.7246376811595" y="1798.6607142857142"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrow.2.circlepath" catalog="system" width="128" height="101"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="checkmark.rectangle" catalog="system" width="128" height="93"/>
         <image name="facebook" width="128" height="128"/>

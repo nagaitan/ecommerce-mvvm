@@ -11,6 +11,7 @@ target 'E-Commerce' do
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   pod 'SwiftyJSON'
+  pod 'RealmSwift'
 end
 
   # Pods for E-Commerce

@@ -34,7 +34,7 @@ class ItemCell: UITableViewCell {
             lblItemName.text = title
         }
         
-        if let loved = promoItem.loved, loved == 1 {
+        if promoItem.loved == 1 {
             imgLoved.image = UIImage(systemName: "heart.fill")
         }else{
             imgLoved.image = UIImage(systemName: "heart")
