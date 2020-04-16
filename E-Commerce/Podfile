@@ -5,12 +5,12 @@ target 'E-Commerce' do
   use_frameworks!
   pod 'RxSwift'
   pod 'RxCocoa'
-  pod 'Alamofire'
-  pod 'AlamofireImage'
+  pod 'Alamofire','~> 4.8.1'
+  pod 'AlamofireImage','~> 3.5.0'
   pod 'SVPullToRefresh'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
-
+  pod 'SwiftyJSON'
 end
 
   # Pods for E-Commerce
