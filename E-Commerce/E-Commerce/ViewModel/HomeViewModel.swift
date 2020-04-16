@@ -7,10 +7,37 @@
 //
 
 import Foundation
-
+import RxSwift
+import SwiftyJSON
 
 import Foundation
 
-class HomeViewModel {
+class HomeViewModel : NSObject {
+    let api: APIConnector
+    let disposeBag = DisposeBag()
+    
+    var categories = [Category]()
+    var promoItems = [PromoItem]()
+    
+    convenience override init() {
+        self.init(apiConnector: APIConnector.instance)
+    }
+    
+    init(apiConnector: APIConnector) {
+        self.api = apiConnector
+    }
+    
+    func getListProduct() -> Observable<Void> {
+        return api.getListProduct()
+            .do ( onNext :  {
+                _items in
+                print("Nge Load Data")
+                
+                self.categories = _items.0
+                self.promoItems = _items.1
+                
+            }).map { _ in return Void() }
+    }
+    
     
 }

@@ -7,14 +7,22 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import AlamofireImage
 
 class HomeVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    let viewModel = HomeViewModel()
+    private let refreshStream = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        setupStream()
+        refreshStream.onNext(())
     }
     
     func setupView() {
@@ -22,6 +30,29 @@ class HomeVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+    }
+    
+    func setupStream() {
+        refreshStream
+            .do(onNext : { _ in
+                
+            })
+            .filter{
+                return true
+            }
+            .flatMap { url in
+                self.viewModel.getListProduct()
+            }
+            .do( onNext : { _ in
+                
+                self.tableView.reloadData()
+            }, onError : {
+                errorType in
+                
+                self.tableView.reloadData()
+            })
+            .subscribe()
+            .disposed(by: disposeBag)
     }
 
 }
@@ -45,7 +76,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         if section == 0 {
             return 1
         }
-        return 5
+        return self.viewModel.promoItems.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -60,9 +91,13 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0, indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as? CategoryCell
+            cell?.bindData(categories: self.viewModel.categories)
             return cell ?? UITableViewCell()
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as? ItemCell
+            
+            cell?.bind(promoItem: self.viewModel.promoItems[indexPath.row])
+            
             return cell ?? UITableViewCell()
         }
     }

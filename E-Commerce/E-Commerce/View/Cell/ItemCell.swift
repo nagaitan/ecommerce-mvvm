@@ -10,6 +10,7 @@ import UIKit
 
 class ItemCell: UITableViewCell {
 
+    @IBOutlet weak var imgLoved: UIImageView!
     @IBOutlet weak var lblItemName: UILabel!
     @IBOutlet weak var imgItem: UIImageView!
     
@@ -22,6 +23,23 @@ class ItemCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func bind(promoItem : PromoItem) {
+        if let urlImage = promoItem.imageUrl, let url = NSURL(string: urlImage){
+            imgItem.af_setImage(withURL: url as URL, placeholderImage: UIImage(named: "google"), filter: nil, progress: nil, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
+        }
+        
+        if let title = promoItem.title {
+            lblItemName.text = title
+        }
+        
+        if let loved = promoItem.loved, loved == 1 {
+            imgLoved.image = UIImage(systemName: "heart.fill")
+        }else{
+            imgLoved.image = UIImage(systemName: "heart")
+        }
+        
     }
     
 }

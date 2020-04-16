@@ -36,7 +36,31 @@ class APIConnector: NSObject {
         super.init()
     }
     
+    func getListProduct() -> Observable<([Category], [PromoItem])>{
+        let request = manager.request(homeURLString, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
+        return request.rx_JSON()
+            .mapJSONResponse()
+            .map { response in
+                print("Isi Response \(response.result)")
+                var categories = [Category]()
+                var promoItems = [PromoItem]()
+                for cat in response.result["category"].arrayValue {
+                    if let catItem = Category.with(json: cat) {
+                        categories.append(catItem)
+                    }
+                }
+                for pro in response.result["productPromo"].arrayValue {
+                    if let proItem = PromoItem.with(json: pro) {
+                        promoItems.append(proItem)
+                    }
+                }
+                
+                return (categories, promoItems)
+        }
+    }
 }
+
+
 
 class APIManager: SessionManager {
     
@@ -60,21 +84,14 @@ extension Observable {
                 fatalError("Not a JSON")
             }
             print("to be mapped: ", json)
-            var code = 200;
-            var message = "";
+            let code = 200;
+            let message = "";
             var result = json;
-            if json["error"].exists(){
-                if json["statusCode"].exists() {
-                    code = json["statusCode"].intValue
-                }
-            } else if json["data"].exists() {
-                result = json["data"]
-            } else {
-                result = json
+            
+            if json.arrayValue[0]["data"].exists(){
+                result = json.arrayValue[0]["data"]
             }
-            if json["message"].exists() {
-                message = json["message"].stringValue
-            }
+
             return APIResponse(code: code, message: message, result: result)
         }
     }

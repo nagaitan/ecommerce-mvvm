@@ -9,10 +9,22 @@
 import UIKit
 
 class CategoryItemCell: UICollectionViewCell {
-
+    @IBOutlet weak var imgItem: UIImageView!
+    @IBOutlet weak var lblName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func bind(cat : Category){
+        if let urlImage = cat.imageUrl, let url = NSURL(string: urlImage){
+            imgItem.af_setImage(withURL: url as URL, placeholderImage: UIImage(named: "google"), filter: nil, progress: nil, imageTransition: .crossDissolve(0.3), runImageTransitionIfCached: true, completion: nil)
+        }
+        
+        if let name = cat.name {
+            lblName.text  = name
+        }
     }
 
 }

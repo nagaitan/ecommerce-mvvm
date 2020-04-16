@@ -11,6 +11,7 @@ import UIKit
 class CategoryCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    var categories = [Category]()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,8 +28,9 @@ class CategoryCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func bindData() {
-        
+    func bindData(categories : [Category]) {
+        self.categories = categories
+        self.collectionView.reloadData()
     }
     
     
@@ -37,7 +39,7 @@ class CategoryCell: UITableViewCell {
 
 extension CategoryCell : UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return self.categories.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -51,6 +53,8 @@ extension CategoryCell : UICollectionViewDelegate, UICollectionViewDataSource, U
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryItemCell", for: indexPath) as? CategoryItemCell
+        
+        cell?.bind(cat: categories[indexPath.row])
         print(indexPath)
         
         return cell ?? UICollectionViewCell()
