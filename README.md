@@ -13,7 +13,7 @@ Ecommerce App using MVVM Architechture.
   - Swift 5.0
   - Pod
   
-# features 
+# Features 
 1. Login : 
       - By Email Address & Password, By Facebook & By Google
       - Sign in button will be disabled until valid email & password are inputed. 
@@ -29,12 +29,15 @@ Ecommerce App using MVVM Architechture.
 7. UI Test
 8. Clean Code, No error, No Warning.
 
-# asumptions
+# Asumptions
 1. Static data at Search Page is loaded from json file
 2. At First load, search page will show blank page, will show item after filling search bar.
 3. Search page will show all item after done searching and field is left blank. 
 4. Facebook App ID maybe disabled by Facebook since App is not completely configured (no url policy) at Facebook Developer Page. 
 5. UI Test covered one complete transaction include : Login -> Home -> Detail Item -> Back Home -> Search Page -> Detail Page -> Buy -> Purchased Page. 
 
-# note
+# Note
 Drag list to close keyboard.
+
+# Contact 
+Ask me : adiwibowoplus@gmail.com
