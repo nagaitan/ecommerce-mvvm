@@ -1,7 +1,7 @@
 # ecommerce-mvvm
 Ecommerce App using MVVM Architechture.
 
-# Instalation : 
+# Installations : 
   - Clone or download this project
   - Open ```.xcworkspace``` file
   - If you need to refresh Pod file Go to project directory, then run ```pod install``` from your terminal
