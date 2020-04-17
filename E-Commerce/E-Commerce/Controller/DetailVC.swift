@@ -28,10 +28,12 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("Isi Item \(item)")
         setupView()
     }
     
     func setupView(){
+        viewModel.delegate = self
         if item.loved == 1 {
             btnLoved.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }else{
@@ -52,13 +54,7 @@ class DetailVC: UIViewController {
         
     }
     @IBAction func goLoved(_ sender: UIButton) {
-        if item.loved == 0{
-            item.loved = 1
-            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-        }else{
-            item.loved = 0
-            sender.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
+        viewModel.likeItem(vc: self)
     }
     
     @IBAction func goBack(_ sender: Any) {
@@ -71,5 +67,11 @@ class DetailVC: UIViewController {
     
     @IBAction func goShare(_ sender: Any) {
         viewModel.shareItem(vc: self, item: item)
+    }
+}
+
+extension DetailVC : DetailViewDelegate{
+    func doneBuy() {
+        self.navigationController?.popViewController(animated: true)
     }
 }

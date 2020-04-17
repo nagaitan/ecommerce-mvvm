@@ -10,27 +10,54 @@ import Foundation
 import UIKit
 import RealmSwift
 
+protocol DetailViewDelegate {
+    func doneBuy()
+}
+
 class DetailViewModel {
+    var delegate : DetailViewDelegate?
+    
     func purchaseItem(item : PromoItem) {
+        let newItem = PromoItem()
+        newItem.descriptions = item.descriptions
+        newItem.id = item.id
+        newItem.imageUrl = item.imageUrl
+        newItem.price = item.price
+        newItem.loved = item.loved
+        newItem.title = item.title
+        
         do {
           let realm = try! Realm()
-          // Persist your data easily
           try realm.write {
-              realm.add(item)
+              realm.add(newItem)
+            delegate?.doneBuy()
           }
         } catch let error as NSError {
-          // handle error
             print("Erros \(error.localizedDescription)")
         }
         
     }
     
-    func shareItem(vc : DetailVC, item : PromoItem) {
-        let shareText = "For Only \(item.price ?? "$0") "
-        if let image = item.imageUrl {
-            let pop = UIActivityViewController(activityItems: [shareText, image], applicationActivities: [])
-            pop.setValue(item.title ?? "", forKey: "Subject")
-            vc.present(pop, animated: true)
+    func likeItem(vc : DetailVC){
+        let realm = try! Realm()
+        if vc.item.loved == 0{
+            try! realm.write {
+                vc.item.loved = 1
+            }
+            vc.btnLoved.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        }else{
+            try! realm.write {
+                vc.item.loved = 0
+            }
+            vc.btnLoved.setImage(UIImage(systemName: "heart"), for: .normal)
         }
+    }
+    
+    func shareItem(vc : DetailVC, item : PromoItem) {
+        let items: [Any] = ["Grab Now! \(item.title ?? "") only \(item.price ?? "")", URL(string: item.imageUrl ?? "")!]
+        let pop = UIActivityViewController(activityItems: items, applicationActivities: [])
+        pop.setValue(item.title ?? "", forKey: "Subject")
+        vc.present(pop, animated: true)
+        
     }
 }
