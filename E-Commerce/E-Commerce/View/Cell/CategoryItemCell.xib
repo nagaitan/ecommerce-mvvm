@@ -17,14 +17,14 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-YA-H1i">
-                        <rect key="frame" x="4" y="4" width="167" height="135"/>
+                        <rect key="frame" x="4" y="16" width="167" height="111"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="avS-3r-U6f">
-                                <rect key="frame" x="8" y="8" width="151" height="94.5"/>
+                                <rect key="frame" x="8" y="8" width="151" height="77.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azM-DH-aKF">
-                                <rect key="frame" x="4" y="102.5" width="159" height="24.5"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <rect key="frame" x="4" y="85.5" width="159" height="21.5"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -37,7 +37,7 @@
                             <constraint firstItem="avS-3r-U6f" firstAttribute="top" secondItem="6c7-YA-H1i" secondAttribute="top" constant="8" id="NZj-vT-ou8"/>
                             <constraint firstItem="avS-3r-U6f" firstAttribute="leading" secondItem="6c7-YA-H1i" secondAttribute="leading" constant="8" id="V9P-Rh-2mg"/>
                             <constraint firstAttribute="trailing" secondItem="azM-DH-aKF" secondAttribute="trailing" constant="4" id="cAB-Oa-suz"/>
-                            <constraint firstAttribute="bottom" secondItem="azM-DH-aKF" secondAttribute="bottom" constant="8" id="w0R-lr-HnX"/>
+                            <constraint firstAttribute="bottom" secondItem="azM-DH-aKF" secondAttribute="bottom" constant="4" id="w0R-lr-HnX"/>
                             <constraint firstAttribute="trailing" secondItem="avS-3r-U6f" secondAttribute="trailing" constant="8" id="zEG-5z-pza"/>
                         </constraints>
                     </view>
@@ -45,9 +45,9 @@
             </view>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="6c7-YA-H1i" secondAttribute="trailing" constant="2" id="4RC-6w-QZV"/>
-                <constraint firstAttribute="bottom" secondItem="6c7-YA-H1i" secondAttribute="bottom" constant="4" id="GiZ-nx-eu4"/>
+                <constraint firstAttribute="bottom" secondItem="6c7-YA-H1i" secondAttribute="bottom" constant="16" id="GiZ-nx-eu4"/>
                 <constraint firstItem="6c7-YA-H1i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="OnY-yx-eGz"/>
-                <constraint firstItem="6c7-YA-H1i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="zi5-km-4Zb"/>
+                <constraint firstItem="6c7-YA-H1i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="zi5-km-4Zb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="173" height="143"/>

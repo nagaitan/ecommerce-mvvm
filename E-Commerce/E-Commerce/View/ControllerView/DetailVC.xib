@@ -9,6 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailVC" customModule="E_Commerce" customModuleProvider="target">
             <connections>
+                <outlet property="btnBuy" destination="3m3-9B-YJE" id="hWN-eu-uEU"/>
                 <outlet property="btnLoved" destination="rzo-JS-bxu" id="NHg-18-r8o"/>
                 <outlet property="imgItem" destination="yth-gT-xZx" id="sjj-oU-tZK"/>
                 <outlet property="lblName" destination="UJR-eY-1b7" id="ifp-kh-VAn"/>

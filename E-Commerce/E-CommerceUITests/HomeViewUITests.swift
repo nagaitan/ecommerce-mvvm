@@ -31,6 +31,8 @@ class HomeViewUITests: XCTestCase {
         let isEnabledAfterFillingEmail = app.buttons["Sign In"].isEnabled
         XCTAssertFalse(isEnabledAfterFillingEmail)
         
+        app.textFields["E-mail"].typeText("\n")
+        
         app.secureTextFields["Password"].tap()
         app.secureTextFields["Password"].typeText("p")
         

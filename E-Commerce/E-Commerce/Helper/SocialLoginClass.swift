@@ -56,7 +56,6 @@ extension SocialLoginClass{
     // Get Facebook LoggedIn User data.
     
     func getFBUserData(completion:@escaping (Bool, String) -> Void){
-        
         if((AccessToken.current) != nil){
             GraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
@@ -91,20 +90,10 @@ extension SocialLoginClass : GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         
         if error == nil{
-//            let userId = user.userID                  // For client-side use only!
-//            let idToken = user.authentication.idToken // Safe to send to the server
-//            let fullName = user.profile.name
-//            let givenName = user.profile.givenName
-//            let familyName = user.profile.familyName
-            
             print("response : \(user.profile.email ?? "No Email")")
-            
             let email = user.profile.email
             LoginViewModel.sharedLogin().Email = email!
             self.delegate.LoginSuccess()
-//            LoginViewModel.sharedLogin().getLoginData { (response) in
-//                print("response : \(response)")
-//            }
         }
     }
     

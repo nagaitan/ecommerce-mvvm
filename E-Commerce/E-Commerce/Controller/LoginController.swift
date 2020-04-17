@@ -26,7 +26,16 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupView()
+    }
+    
+    func setupView(){
         objLoginModel.delegate = self
+        btnSignIn.cardify()
+        btnGoogle.cardify()
+        btnFB.cardify()
+        txtUsername.delegate = self
+        txtUsername.returnKeyType = .done
         txtPassword.addTarget(self, action: #selector(self.checkFields(_:)), for: .editingChanged)
         txtUsername.addTarget(self, action: #selector(self.checkFields(_:)), for: .editingChanged)
         
@@ -69,3 +78,10 @@ extension LoginController : LoginDelegate {
     }
 }
 
+extension LoginController : UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
+}

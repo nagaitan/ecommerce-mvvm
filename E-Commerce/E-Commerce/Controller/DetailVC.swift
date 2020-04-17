@@ -10,6 +10,7 @@ import UIKit
 
 class DetailVC: UIViewController {
 
+    @IBOutlet weak var btnBuy: UIButton!
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var txtDescription: UITextView!
@@ -33,6 +34,7 @@ class DetailVC: UIViewController {
     
     func setupView(){
         viewModel.delegate = self
+        btnBuy.cardify()
         if item.loved == 1 {
             btnLoved.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }else{
