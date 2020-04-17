@@ -18,6 +18,7 @@ class HomeVC: UIViewController {
     private let refreshStream = PublishSubject<Void>()
     private let disposeBag = DisposeBag()
     @IBOutlet weak var searchBar: UISearchBar!
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,12 +34,24 @@ class HomeVC: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        //pull to refresh
+        // Add Refresh Control to Table View
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+    }
+    
+    @objc private func refreshData(_ sender: Any) {
+        refreshStream.onNext(())
     }
     
     func setupStream() {
         refreshStream
             .do(onNext : { _ in
-                
+                self.refreshControl.beginRefreshing()
             })
             .filter{
                 return true
@@ -47,12 +60,14 @@ class HomeVC: UIViewController {
                 self.viewModel.getListProduct()
             }
             .do( onNext : { _ in
-                
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }, onError : {
                 errorType in
-                
+                print("Masuk Sini Dong \(errorType.localizedDescription)")
+                self.viewModel.showToast(message: errorType.localizedDescription, vc: self)
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             })
             .subscribe()
             .disposed(by: disposeBag)

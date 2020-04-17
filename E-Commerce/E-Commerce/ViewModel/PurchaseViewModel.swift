@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class PurchaseViewModel {
+class PurchaseViewModel  : BaseVM{
     var items : [PromoItem]!
     
     func getPurchasedItems()  {
@@ -17,6 +17,7 @@ class PurchaseViewModel {
         let itemsSaved = realm.objects(PromoItem.self)
         self.items = [PromoItem]()
         self.items.append(contentsOf: itemsSaved)
+        self.items.reverse()
         print("Count \(items.count)")
         
     }

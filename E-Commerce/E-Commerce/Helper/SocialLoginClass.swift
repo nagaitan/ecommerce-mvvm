@@ -13,7 +13,7 @@ import GoogleSignIn
 private var shared:SocialLoginClass? = nil
 
 protocol SocialLoginDelegate {
-    func googleLoginSuccess()
+    func LoginSuccess()
 }
 
 class SocialLoginClass: NSObject {
@@ -47,7 +47,7 @@ extension SocialLoginClass{
                 }
                 else{
                     // Stop Loader
-                    completion(false,(error?.localizedDescription)!)
+                    //completion(false,(error?.localizedDescription)!)
                 }
             }
         }
@@ -101,7 +101,7 @@ extension SocialLoginClass : GIDSignInDelegate {
             
             let email = user.profile.email
             LoginViewModel.sharedLogin().Email = email!
-            self.delegate.googleLoginSuccess()
+            self.delegate.LoginSuccess()
 //            LoginViewModel.sharedLogin().getLoginData { (response) in
 //                print("response : \(response)")
 //            }

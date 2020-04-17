@@ -12,7 +12,7 @@ import SwiftyJSON
 
 import Foundation
 
-class HomeViewModel : NSObject {
+class HomeViewModel : BaseVM {
     let api: APIConnector
     let disposeBag = DisposeBag()
     
@@ -31,11 +31,9 @@ class HomeViewModel : NSObject {
         return api.getListProduct()
             .do ( onNext :  {
                 _items in
-                print("Nge Load Data")
-                
+                print("Load Data")
                 self.categories = _items.0
                 self.promoItems = _items.1
-                
             }).map { _ in return Void() }
     }
     

@@ -14,7 +14,7 @@ protocol DetailViewDelegate {
     func doneBuy()
 }
 
-class DetailViewModel {
+class DetailViewModel : BaseVM{
     var delegate : DetailViewDelegate?
     
     func purchaseItem(item : PromoItem) {
@@ -60,4 +60,5 @@ class DetailViewModel {
         vc.present(pop, animated: true)
         
     }
+
 }

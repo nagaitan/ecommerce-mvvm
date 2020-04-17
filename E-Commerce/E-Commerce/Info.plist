@@ -43,27 +43,27 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb2232939196997777</string>
-            </array>
-        </dict>
-        <dict>
-            <key>CFBundleTypeRole</key>
-            <string>Editor</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>com.googleusercontent.apps.296171066110-ost7vo3635cn2gpv0aguvkg8ir60bjbu</string>
-            </array>
-        </dict>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb2744355682461444</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.296171066110-ost7vo3635cn2gpv0aguvkg8ir60bjbu</string>
+			</array>
+		</dict>
+	</array>
 	<key>FacebookAppID</key>
-	<string>2232939196997777</string>
+	<string>2744355682461444</string>
 	<key>FacebookDisplayName</key>
 	<string>EcommerceApp</string>
 	<key>FacebookAutoLogAppEventsEnabled</key>

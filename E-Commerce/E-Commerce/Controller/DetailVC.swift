@@ -28,7 +28,6 @@ class DetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("Isi Item \(item)")
         setupView()
     }
     
@@ -72,6 +71,6 @@ class DetailVC: UIViewController {
 
 extension DetailVC : DetailViewDelegate{
     func doneBuy() {
-        self.navigationController?.popViewController(animated: true)
+        self.viewModel.showToast(message: "Succesfully Purchased", vc: self)
     }
 }

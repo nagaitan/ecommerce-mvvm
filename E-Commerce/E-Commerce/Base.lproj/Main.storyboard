@@ -177,7 +177,7 @@
         <!--Home-->
         <scene sceneID="HdR-WE-asu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="aNZ-Ud-QLP" customClass="HomeVC" customModule="E_Commerce" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" modalPresentationStyle="fullScreen" id="aNZ-Ud-QLP" customClass="HomeVC" customModule="E_Commerce" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g8y-r0-w1K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -260,7 +260,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yM4-gC-aBg">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="jC9-nt-Vak" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="HomeTabBar" modalPresentationStyle="fullScreen" id="jC9-nt-Vak" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="WUu-OX-FnO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ckY-FW-L9s">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -353,7 +353,7 @@
         <!--Home-->
         <scene sceneID="t7O-vw-03p">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="08s-jY-I6m" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeVCNav" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="08s-jY-I6m" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="z9N-vr-cMS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wpw-Sd-Pnj">

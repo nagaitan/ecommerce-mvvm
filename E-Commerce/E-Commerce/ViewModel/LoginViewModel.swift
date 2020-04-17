@@ -13,7 +13,7 @@ import GoogleSignIn
 private var shared : LoginViewModel? = nil
 
 protocol LoginDelegate {
-    func googleLoginSuccess()
+    func LoginSuccess()
 }
 
 class LoginViewModel: NSObject {
@@ -29,26 +29,13 @@ class LoginViewModel: NSObject {
         }
         return shared!
     }
-    
-    func getLoginData(completion:@escaping (UserDetails) -> Void) {
-        
-        if (self.Email.isEmptyString()){
-            ValidataionClass.sharedInstance().alertMessage(withTitle: APP_TITLE, alertMessage: emailBlank)
-        }
-        else{
-            
-        }
-    }
-    
     // Facebook SignIn
     
     func loginWithFacebook(completion:@escaping (UserDetails) -> Void){
 
         SocialLoginClass.sharedManager().loginWithFacebook { (status,error) in
             if status{
-                self.getLoginData(completion: { (response) in
-                    completion(response)
-                })
+                self.delegate.LoginSuccess()
             }else{
                 ValidataionClass.sharedInstance().alertMessage(withTitle: APP_TITLE, alertMessage: error)
             }
@@ -63,8 +50,8 @@ class LoginViewModel: NSObject {
 }
 
 extension LoginViewModel : SocialLoginDelegate {
-    func googleLoginSuccess() {
-        self.delegate.googleLoginSuccess()
+    func LoginSuccess() {
+        self.delegate.LoginSuccess()
     }
 }
 

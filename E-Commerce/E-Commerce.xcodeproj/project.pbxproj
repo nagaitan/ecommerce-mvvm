@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		143940297E4B0855EBE141CA /* libPods-E-CommerceUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71619248C223C2960026437F /* libPods-E-CommerceUITests.a */; };
+		151FDCD6244968DA0086409F /* BaseVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151FDCD5244968DA0086409F /* BaseVM.swift */; };
 		1528475D2448D0E900CE5F9C /* PurchaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1528475C2448D0E900CE5F9C /* PurchaseViewModel.swift */; };
 		15873E522448AB200090F7E3 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15873E502448AB200090F7E3 /* SearchVC.swift */; };
 		15873E532448AB200090F7E3 /* SearchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 15873E512448AB200090F7E3 /* SearchVC.xib */; };
@@ -66,6 +67,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		151FDCD5244968DA0086409F /* BaseVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVM.swift; sourceTree = "<group>"; };
 		1528475C2448D0E900CE5F9C /* PurchaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseViewModel.swift; sourceTree = "<group>"; };
 		15873E502448AB200090F7E3 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		15873E512448AB200090F7E3 /* SearchVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchVC.xib; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				15873E542448B02A0090F7E3 /* SearchViewModel.swift */,
 				15873E682448C8670090F7E3 /* DetailViewModel.swift */,
 				1528475C2448D0E900CE5F9C /* PurchaseViewModel.swift */,
+				151FDCD5244968DA0086409F /* BaseVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				15873E692448C8670090F7E3 /* DetailViewModel.swift in Sources */,
 				15ABBACE2446B3C700605340 /* AppDelegate.swift in Sources */,
 				1597526F24478BBC0046820F /* CategoryItemCell.swift in Sources */,
+				151FDCD6244968DA0086409F /* BaseVM.swift in Sources */,
 				15873E5E2448BACD0090F7E3 /* SearchItemCell.swift in Sources */,
 				15ABBAD02446B3C700605340 /* SceneDelegate.swift in Sources */,
 				15A4BAE1244770AE00880230 /* LoginViewModel.swift in Sources */,

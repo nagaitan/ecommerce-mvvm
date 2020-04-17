@@ -42,20 +42,23 @@ class APIConnector: NSObject {
             .mapJSONResponse()
             .map { response in
                 print("Isi Response \(response.result)")
-                var categories = [Category]()
-                var promoItems = [PromoItem]()
-                for cat in response.result["category"].arrayValue {
-                    if let catItem = Category.with(json: cat) {
-                        categories.append(catItem)
-                    }
+                if response.code != 200 {
+                    throw NSError(domain: "APIErrorDomain", code: -1, userInfo: [NSLocalizedDescriptionKey: response.message])
                 }
-                for pro in response.result["productPromo"].arrayValue {
-                    if let proItem = PromoItem.with(json: pro) {
-                        promoItems.append(proItem)
+                    var categories = [Category]()
+                    var promoItems = [PromoItem]()
+                    for cat in response.result["category"].arrayValue {
+                        if let catItem = Category.with(json: cat) {
+                            categories.append(catItem)
+                        }
                     }
-                }
-                
-                return (categories, promoItems)
+                    for pro in response.result["productPromo"].arrayValue {
+                        if let proItem = PromoItem.with(json: pro) {
+                            promoItems.append(proItem)
+                        }
+                    }
+                    
+                    return (categories, promoItems)
         }
     }
 }
@@ -101,17 +104,9 @@ extension Observable {
 extension DataRequest{
     func rx_JSON(options: JSONSerialization.ReadingOptions = .allowFragments) -> Observable<JSON> {
         let observable = Observable<JSON>.create { observer in
-//            if let method = self.request?.httpMethod, let urlString = self.request?.url {
-////                print("[\(method)] \(urlString)")
-//                if let body = self.request?.httpBody {
-////                    print(NSString(data: body, encoding: String.Encoding.utf8.rawValue))
-//                }
-//            }
-            
             self.responseJSON(options: options) { response in
                 if let error = response.result.error {
                     _ = String(data: response.data!, encoding: String.Encoding.utf8)
-//                    print(string)
                     observer.onError(error)
                 } else if let value = response.result.value {
                     let json = JSON(value)

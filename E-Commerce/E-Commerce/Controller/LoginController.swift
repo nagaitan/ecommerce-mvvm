@@ -32,17 +32,24 @@ class LoginController: UIViewController {
     @IBAction func loginWithFB(_ sender: Any) {
         objLoginModel.loginWithFacebook { (response) in
             print("Response :\(response)")
+//            self.goToHome()
         }
     }
     
     @IBAction func loginWIthGoogle(_ sender: UIButton) {
         objLoginModel.loginWithGoogle(controller: self)
     }
+    
+    func goToHome(){
+        let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeTabBar") as! UITabBarController
+        tabBar.modalPresentationStyle = .fullScreen
+        self.present(tabBar, animated: false, completion: nil)
+    }
 }
 
 extension LoginController : LoginDelegate {
-    func googleLoginSuccess() {
-        
+    func LoginSuccess() {
+        goToHome()
     }
 }
 
