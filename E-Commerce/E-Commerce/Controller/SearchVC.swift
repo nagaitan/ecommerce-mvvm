@@ -28,6 +28,7 @@ class SearchVC: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "SearchItemCell", bundle: nil), forCellReuseIdentifier: "SearchItemCell")
+        self.tableView.keyboardDismissMode = .onDrag
         self.tableView.reloadData()
     }
     @IBAction func goBack(_ sender: Any) {

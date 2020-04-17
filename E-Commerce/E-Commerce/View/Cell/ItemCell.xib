@@ -20,7 +20,7 @@
                         <rect key="frame" x="8" y="8" width="304" height="184"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USS-ju-CiE">
-                                <rect key="frame" x="0.0" y="151" width="304" height="29"/>
+                                <rect key="frame" x="8" y="151" width="296" height="29"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,7 +40,7 @@
                         <constraints>
                             <constraint firstItem="glg-vq-6bU" firstAttribute="height" secondItem="YT7-ak-Gjf" secondAttribute="height" multiplier="0.8" id="0PG-yf-L7a"/>
                             <constraint firstItem="glg-vq-6bU" firstAttribute="leading" secondItem="YT7-ak-Gjf" secondAttribute="leading" id="7J6-Ka-TAw"/>
-                            <constraint firstItem="USS-ju-CiE" firstAttribute="leading" secondItem="YT7-ak-Gjf" secondAttribute="leading" id="GgI-kw-UdV"/>
+                            <constraint firstItem="USS-ju-CiE" firstAttribute="leading" secondItem="YT7-ak-Gjf" secondAttribute="leading" constant="8" id="GgI-kw-UdV"/>
                             <constraint firstAttribute="trailing" secondItem="USS-ju-CiE" secondAttribute="trailing" id="IXj-pc-IEp"/>
                             <constraint firstAttribute="trailing" secondItem="glg-vq-6bU" secondAttribute="trailing" id="VTo-v2-oho"/>
                             <constraint firstItem="rPG-eX-ul9" firstAttribute="top" secondItem="YT7-ak-Gjf" secondAttribute="top" constant="4" id="ZaG-Px-xlf"/>
@@ -60,6 +60,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="containerView" destination="YT7-ak-Gjf" id="q4J-1F-Dfv"/>
                 <outlet property="imgItem" destination="glg-vq-6bU" id="NR4-Hh-jVb"/>
                 <outlet property="imgLoved" destination="rPG-eX-ul9" id="miN-sf-vkT"/>
                 <outlet property="lblItemName" destination="USS-ju-CiE" id="tiO-Nz-dAj"/>

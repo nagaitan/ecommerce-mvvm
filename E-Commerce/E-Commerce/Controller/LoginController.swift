@@ -27,13 +27,29 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         objLoginModel.delegate = self
+        txtPassword.addTarget(self, action: #selector(self.checkFields(_:)), for: .editingChanged)
+        txtUsername.addTarget(self, action: #selector(self.checkFields(_:)), for: .editingChanged)
+        
     }
 
     @IBAction func loginWithFB(_ sender: Any) {
         objLoginModel.loginWithFacebook { (response) in
-            print("Response :\(response)")
-//            self.goToHome()
         }
+    }
+    
+    @objc func checkFields(_ textField: UITextField) {
+        print(isValidCredentials(email: self.txtUsername.text!, pw: self.txtPassword.text!))
+        if isValidCredentials(email: self.txtUsername.text!, pw: self.txtPassword.text!){
+            btnSignIn.isEnabled = true
+            btnSignIn.backgroundColor = UIColor.darkGray
+        }else{
+            btnSignIn.isEnabled = false
+            btnSignIn.backgroundColor = UIColor.lightGray
+        }
+    }
+    
+    func isValidCredentials(email : String, pw : String) -> Bool {
+        return self.objLoginModel.isValidCredentials(txtEMail: email, txtPw: pw)
     }
     
     @IBAction func loginWIthGoogle(_ sender: UIButton) {

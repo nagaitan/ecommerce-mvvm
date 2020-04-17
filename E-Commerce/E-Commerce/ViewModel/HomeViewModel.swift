@@ -37,5 +37,12 @@ class HomeViewModel : BaseVM {
             }).map { _ in return Void() }
     }
     
+    func getPromoCount() -> Int {
+        return promoItems.count
+    }
+    
+    func getCategoriesCount() -> Int {
+        return categories.count
+    }
     
 }

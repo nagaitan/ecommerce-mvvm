@@ -8,7 +8,7 @@
 
 import Foundation
 
-let APP_TITLE = "MVVM DEMO"
+let APP_TITLE = "MVVM ECOMMERCE"
 
 // User Module Validataion String
 

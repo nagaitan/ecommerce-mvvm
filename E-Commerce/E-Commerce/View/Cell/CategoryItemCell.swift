@@ -11,10 +11,12 @@ import UIKit
 class CategoryItemCell: UICollectionViewCell {
     @IBOutlet weak var imgItem: UIImageView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        containerView.cardify()
     }
     
     func bind(cat : Category){

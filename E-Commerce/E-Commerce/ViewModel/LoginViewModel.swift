@@ -42,6 +42,18 @@ class LoginViewModel: NSObject {
         }
     }
     
+    func isValidCredentials(txtEMail : String, txtPw : String) -> Bool {
+        return isValidEmail(email: txtEMail) && isValidPassword(passwrod: txtPw)
+    }
+    
+    func isValidPassword(passwrod : String) -> Bool {
+        return !passwrod.isEmptyString()
+    }
+    
+    func isValidEmail(email : String) -> Bool {
+        return email.isValidEmailAddress()
+    }
+    
     func loginWithGoogle(controller: LoginController){
         let socialLogin = SocialLoginClass.sharedManager()
         socialLogin.delegate = self

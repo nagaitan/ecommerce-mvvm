@@ -25,7 +25,6 @@ class PurchasedVC: UIViewController {
     
     func setupView() {
         self.navigationController?.navigationBar.isHidden = true
-        
            tableView.delegate = self
            tableView.dataSource = self
            tableView.register(UINib(nibName: "SearchItemCell", bundle: nil), forCellReuseIdentifier: "SearchItemCell")

@@ -31,6 +31,7 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         searchBar.delegate = self
         tableView.delegate = self
+        self.tableView.keyboardDismissMode = .onDrag
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellReuseIdentifier: "CategoryCell")
         tableView.register(UINib(nibName: "ItemCell", bundle: nil), forCellReuseIdentifier: "ItemCell")
@@ -94,7 +95,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         if section == 0 {
             return 1
         }
-        return self.viewModel.promoItems.count
+        return self.viewModel.getPromoCount()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

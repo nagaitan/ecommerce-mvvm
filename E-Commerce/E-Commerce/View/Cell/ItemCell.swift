@@ -13,6 +13,7 @@ class ItemCell: UITableViewCell {
     @IBOutlet weak var imgLoved: UIImageView!
     @IBOutlet weak var lblItemName: UILabel!
     @IBOutlet weak var imgItem: UIImageView!
+    @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,7 +22,7 @@ class ItemCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        containerView.cardify()
         // Configure the view for the selected state
     }
     

@@ -17,13 +17,13 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6c7-YA-H1i">
-                        <rect key="frame" x="0.0" y="0.0" width="173" height="143"/>
+                        <rect key="frame" x="4" y="4" width="167" height="135"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="google" translatesAutoresizingMaskIntoConstraints="NO" id="avS-3r-U6f">
-                                <rect key="frame" x="8" y="8" width="157" height="107.5"/>
+                                <rect key="frame" x="8" y="8" width="151" height="94.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azM-DH-aKF">
-                                <rect key="frame" x="4" y="119.5" width="165" height="19.5"/>
+                                <rect key="frame" x="4" y="102.5" width="159" height="24.5"/>
                                 <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -31,27 +31,28 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="azM-DH-aKF" firstAttribute="top" secondItem="avS-3r-U6f" secondAttribute="bottom" constant="4" id="0UK-GB-g8B"/>
-                            <constraint firstItem="avS-3r-U6f" firstAttribute="height" secondItem="6c7-YA-H1i" secondAttribute="height" multiplier="0.75" id="4tJ-AW-g50"/>
+                            <constraint firstItem="azM-DH-aKF" firstAttribute="top" secondItem="avS-3r-U6f" secondAttribute="bottom" id="0UK-GB-g8B"/>
+                            <constraint firstItem="avS-3r-U6f" firstAttribute="height" secondItem="6c7-YA-H1i" secondAttribute="height" multiplier="0.7" id="4tJ-AW-g50"/>
                             <constraint firstItem="azM-DH-aKF" firstAttribute="leading" secondItem="6c7-YA-H1i" secondAttribute="leading" constant="4" id="Ikn-ux-hY7"/>
                             <constraint firstItem="avS-3r-U6f" firstAttribute="top" secondItem="6c7-YA-H1i" secondAttribute="top" constant="8" id="NZj-vT-ou8"/>
                             <constraint firstItem="avS-3r-U6f" firstAttribute="leading" secondItem="6c7-YA-H1i" secondAttribute="leading" constant="8" id="V9P-Rh-2mg"/>
                             <constraint firstAttribute="trailing" secondItem="azM-DH-aKF" secondAttribute="trailing" constant="4" id="cAB-Oa-suz"/>
-                            <constraint firstAttribute="bottom" secondItem="azM-DH-aKF" secondAttribute="bottom" constant="4" id="w0R-lr-HnX"/>
+                            <constraint firstAttribute="bottom" secondItem="azM-DH-aKF" secondAttribute="bottom" constant="8" id="w0R-lr-HnX"/>
                             <constraint firstAttribute="trailing" secondItem="avS-3r-U6f" secondAttribute="trailing" constant="8" id="zEG-5z-pza"/>
                         </constraints>
                     </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="6c7-YA-H1i" secondAttribute="trailing" id="4RC-6w-QZV"/>
-                <constraint firstAttribute="bottom" secondItem="6c7-YA-H1i" secondAttribute="bottom" id="GiZ-nx-eu4"/>
-                <constraint firstItem="6c7-YA-H1i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="OnY-yx-eGz"/>
-                <constraint firstItem="6c7-YA-H1i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="zi5-km-4Zb"/>
+                <constraint firstAttribute="trailing" secondItem="6c7-YA-H1i" secondAttribute="trailing" constant="2" id="4RC-6w-QZV"/>
+                <constraint firstAttribute="bottom" secondItem="6c7-YA-H1i" secondAttribute="bottom" constant="4" id="GiZ-nx-eu4"/>
+                <constraint firstItem="6c7-YA-H1i" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="OnY-yx-eGz"/>
+                <constraint firstItem="6c7-YA-H1i" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="zi5-km-4Zb"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="173" height="143"/>
             <connections>
+                <outlet property="containerView" destination="6c7-YA-H1i" id="vIQ-5D-h98"/>
                 <outlet property="imgItem" destination="avS-3r-U6f" id="VG7-Oq-ctw"/>
                 <outlet property="lblName" destination="azM-DH-aKF" id="G3y-8A-yEV"/>
             </connections>

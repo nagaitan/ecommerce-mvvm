@@ -18,12 +18,12 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="0bn-Ka-pg3"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="GeezaPro-Bold" family="Geeza Pro" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.87483135622400077" green="0.87483135622400077" blue="0.87483135622400077" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UrW-av-saN" secondAttribute="trailing" constant="4" id="1UW-Uw-Q4x"/>
                 <constraint firstItem="UrW-av-saN" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="4" id="LI6-Op-nUg"/>
