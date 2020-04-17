@@ -37,7 +37,7 @@ Ecommerce App using MVVM Architechture.
 5. UI Test covered one complete transaction include : Login -> Home -> Detail Item -> Back Home -> Search Page -> Detail Page -> Buy -> Purchased Page. 
 
 # Note
-Drag list to close keyboard.
+Some Screenshots provided at Screenshots folder. 
 
 # Contact 
 Ask me : adiwibowoplus@gmail.com
